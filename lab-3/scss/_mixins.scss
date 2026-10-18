@@ -1,6 +1,5 @@
 @use "variables" as v;
 
-// Mobile First: стилі всередині застосовуються від заданої ширини і більше
 @mixin respond-to($breakpoint) {
   @media (min-width: $breakpoint) {
     @content;
@@ -18,7 +17,6 @@
   margin-inline: auto;
 }
 
-// Спільний вигляд світлих карток (моніторинг, напрями)
 @mixin surface-card {
   padding: v.$space-md;
   border: 1px solid v.$color-border;

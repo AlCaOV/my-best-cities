@@ -4,7 +4,6 @@
   @include t.container;
 }
 
-// ===== Header: Flexbox, на mobile — колонка =====
 .header {
   border-bottom: 1px solid t.$color-border;
   background: t.$color-white;
@@ -23,7 +22,6 @@
   }
 }
 
-// ===== Hero: Grid, на mobile — вертикальний стек =====
 .hero {
   background: t.$color-hero;
 
@@ -48,12 +46,10 @@
   }
 }
 
-// ===== Секції =====
 .section {
   margin-top: t.$space-xl;
 }
 
-// ===== Сітка «Поточний моніторинг»: 1 → 2 → 5 колонок =====
 .monitoring-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -68,7 +64,6 @@
   }
 }
 
-// ===== Сітка «Напрями роботи»: 1 → 2 → 4 колонки =====
 .services-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -83,7 +78,6 @@
   }
 }
 
-// ===== Footer: Flexbox, на mobile — колонка =====
 .footer {
   margin-top: t.$space-xl;
   padding-block: t.$space-lg;

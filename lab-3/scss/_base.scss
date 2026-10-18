@@ -61,7 +61,6 @@ textarea {
   font: inherit;
 }
 
-// Користувачам, які вимкнули анімацію в системі, прибираємо переходи
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
