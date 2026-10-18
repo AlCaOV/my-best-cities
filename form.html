@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Запропонувати місто — Мої 3 найкращі міста світу</title>
+</head>
+<body>
+  <header>
+    <p><a href="index.html">Мої 3 найкращі міста світу</a></p>
+    <nav>
+      <ul>
+        <li><a href="index.html">Головна</a></li>
+        <li><a href="city-athens.html">Афіни</a></li>
+        <li><a href="city-kyiv.html">Київ</a></li>
+        <li><a href="city-warsaw.html">Варшава</a></li>
+        <li><a href="form.html">Запропонувати місто</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Запропонувати місто для наступного рейтингу</h1>
+    <p>Поля, позначені зірочкою (*), обов'язкові для заповнення.</p>
+
+    <form method="get">
+      <fieldset>
+        <legend>Про вас</legend>
+        <p>
+          <label for="name">Ім'я *</label><br>
+          <input type="text" id="name" name="name" required>
+        </p>
+        <p>
+          <label for="email">Email *</label><br>
+          <input type="email" id="email" name="email" placeholder="name@example.com" required>
+        </p>
+      </fieldset>
+
+      <fieldset>
+        <legend>Місто</legend>
+        <p>
+          <label for="city">Назва міста *</label><br>
+          <input type="text" id="city" name="city" required>
+        </p>
+        <p>
+          <label for="country">Країна *</label><br>
+          <select id="country" name="country" required>
+            <option value="">— оберіть країну —</option>
+            <option value="ukraine">Україна</option>
+            <option value="poland">Польща</option>
+            <option value="greece">Греція</option>
+            <option value="italy">Італія</option>
+            <option value="france">Франція</option>
+            <option value="spain">Іспанія</option>
+            <option value="other">Інша</option>
+          </select>
+        </p>
+        <p>
+          <label for="rating">Ваша оцінка міста (1–10)</label><br>
+          <input type="number" id="rating" name="rating" min="1" max="10" value="10">
+        </p>
+      </fieldset>
+
+      <fieldset>
+        <legend>Тип пропозиції *</legend>
+        <p>
+          <input type="radio" id="type-new" name="type" value="new" required checked>
+          <label for="type-new">Нове місто до рейтингу</label><br>
+          <input type="radio" id="type-replace" name="type" value="replace">
+          <label for="type-replace">Замінити одне з поточних міст</label>
+        </p>
+      </fieldset>
+
+      <fieldset>
+        <legend>Що найбільше подобається в місті</legend>
+        <p>
+          <input type="checkbox" id="like-history" name="likes" value="history">
+          <label for="like-history">Історія та архітектура</label><br>
+          <input type="checkbox" id="like-nature" name="likes" value="nature">
+          <label for="like-nature">Природа</label><br>
+          <input type="checkbox" id="like-food" name="likes" value="food">
+          <label for="like-food">Кухня</label><br>
+          <input type="checkbox" id="like-people" name="likes" value="people">
+          <label for="like-people">Люди та атмосфера</label>
+        </p>
+      </fieldset>
+
+      <p>
+        <label for="reason">Чому варто відвідати це місто? *</label><br>
+        <textarea id="reason" name="reason" rows="6" cols="60" required></textarea>
+      </p>
+
+      <p>
+        <button type="submit">Надіслати</button>
+        <button type="reset">Очистити</button>
+      </p>
+    </form>
+
+    <p><a href="index.html">Повернутися на головну</a></p>
+  </main>
+
+  <footer>
+    <p>Автор: Середній Юрій Олегович, студент групи КН-42, 2026</p>
+  </footer>
+</body>
+</html>
