@@ -1,0 +1,165 @@
+@use "tools" as t;
+
+.sensors-summary {
+  margin-bottom: t.$space-md;
+  color: t.$color-muted;
+}
+
+.sensors-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: t.$space-sm;
+  margin-bottom: t.$space-md;
+
+  label {
+    font-size: 0.875rem;
+  }
+
+  select {
+    min-width: 200px;
+    padding: t.$space-sm 12px;
+    border: 1px solid t.$color-input-border;
+    border-radius: t.$radius;
+    background: t.$color-white;
+    color: t.$color-text;
+  }
+}
+
+.sensors-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: t.$space-md;
+
+  @include t.respond-to(t.$bp-tablet) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include t.respond-to(t.$bp-desktop) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.sensor-card {
+  @include t.surface-card;
+  display: flex;
+  flex-direction: column;
+  gap: t.$space-xs;
+  border-left-width: 6px;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: t.$space-sm;
+  }
+
+  &__id {
+    margin: 0;
+  }
+
+  &__status {
+    padding: 2px t.$space-sm;
+    border-radius: 3px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+
+  &__level {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: t.$color-heading;
+  }
+
+  &__text {
+    font-size: 0.875rem;
+  }
+
+  &__note {
+    font-size: 0.75rem;
+    color: t.$color-muted;
+  }
+
+  &.normal {
+    border-color: t.$color-success-border;
+    border-left-color: t.$color-success;
+
+    .sensor-card__status {
+      background: t.$color-success-bg;
+      color: t.$color-success;
+    }
+  }
+
+  &.warning {
+    border-color: t.$color-warning-border;
+    border-left-color: t.$color-warning;
+
+    .sensor-card__status {
+      background: t.$color-warning-bg;
+      color: t.$color-warning;
+    }
+  }
+
+  &.critical {
+    border-color: t.$color-danger-border;
+    border-left-color: t.$color-danger;
+    background: t.$color-danger-bg;
+
+    .sensor-card__status {
+      background: t.$color-danger;
+      color: t.$color-white;
+    }
+  }
+}
+
+.sensor-form {
+  @include t.surface-card;
+  margin-top: t.$space-lg;
+
+  h3 {
+    margin: 0 0 t.$space-md;
+  }
+
+  &__fields {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: t.$space-md;
+    align-items: end;
+
+    @include t.respond-to(t.$bp-tablet) {
+      grid-template-columns: 2fr 1fr auto;
+    }
+  }
+
+  label {
+    display: block;
+    margin-bottom: t.$space-xs;
+    font-size: 0.875rem;
+  }
+
+  input,
+  select {
+    width: 100%;
+    padding: t.$space-sm 12px;
+    border: 1px solid t.$color-input-border;
+    border-radius: t.$radius;
+    background: t.$color-white;
+    color: t.$color-text;
+
+    &:focus {
+      outline: none;
+      border-color: t.$color-primary;
+    }
+  }
+
+  &__message {
+    min-height: 1.5em;
+    margin-top: t.$space-sm;
+    font-size: 0.875rem;
+    color: t.$color-success;
+
+    &--error {
+      color: t.$color-danger;
+    }
+  }
+}
