@@ -1,0 +1,120 @@
+@use "tools" as t;
+
+.sensor-filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: t.$space-md t.$space-lg;
+  margin-bottom: t.$space-lg;
+  font-size: 0.875rem;
+
+  &__field {
+    display: flex;
+    align-items: center;
+    gap: t.$space-sm;
+  }
+
+  &__check {
+    display: flex;
+    align-items: center;
+    gap: t.$space-sm;
+    cursor: pointer;
+  }
+
+  select {
+    min-width: 200px;
+    padding: t.$space-sm 12px;
+    border: 1px solid t.$color-input-border;
+    border-radius: t.$radius;
+    background: t.$color-white;
+    color: t.$color-text;
+
+    &:focus {
+      outline: none;
+      border-color: t.$color-primary;
+    }
+  }
+
+  input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: t.$color-danger;
+  }
+}
+
+.sensor-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: t.$space-md;
+
+  @include t.respond-to(t.$bp-tablet) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include t.respond-to(t.$bp-desktop) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.sensor-card {
+  @include t.surface-card;
+  display: flex;
+  flex-direction: column;
+  gap: t.$space-xs;
+  border-left-width: 6px;
+  font-size: 0.875rem;
+
+  p {
+    margin: 0;
+  }
+
+  &__title {
+    margin: 0 0 t.$space-xs;
+  }
+
+  &__level {
+    font-size: 1rem;
+    font-weight: 700;
+    color: t.$color-heading;
+  }
+
+  &__status {
+    align-self: flex-start;
+    margin-top: t.$space-xs;
+    padding: 2px t.$space-sm;
+    border-radius: 3px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+
+  &--normal {
+    border-color: t.$color-success-border;
+    border-left-color: t.$color-success;
+
+    .sensor-card__status {
+      background: t.$color-success-bg;
+      color: t.$color-success;
+    }
+  }
+
+  &--warning {
+    border-color: t.$color-warning-border;
+    border-left-color: t.$color-warning;
+
+    .sensor-card__status {
+      background: t.$color-warning-bg;
+      color: t.$color-warning;
+    }
+  }
+
+  &--critical {
+    border-color: t.$color-danger-border;
+    border-left-color: t.$color-danger;
+    background: t.$color-danger-bg;
+
+    .sensor-card__status {
+      background: t.$color-danger;
+      color: t.$color-white;
+    }
+  }
+}

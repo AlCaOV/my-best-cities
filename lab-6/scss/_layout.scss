@@ -1,0 +1,116 @@
+@use "tools" as t;
+
+.container {
+  @include t.container;
+}
+
+.header {
+  border-bottom: 1px solid t.$color-border;
+  background: t.$color-white;
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: t.$space-md;
+    padding-block: t.$space-md;
+
+    @include t.respond-to(t.$bp-tablet) {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+}
+
+.hero {
+  background: t.$color-hero;
+
+  &__inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: t.$space-lg;
+    padding-block: t.$space-lg;
+
+    @include t.respond-to(t.$bp-tablet) {
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: center;
+      padding-block: t.$space-xl;
+    }
+  }
+
+  &__image img {
+    width: 100%;
+    max-height: 340px;
+    border-radius: t.$radius;
+    object-fit: cover;
+  }
+}
+
+.section {
+  margin-top: t.$space-xl;
+}
+
+.monitoring-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: t.$space-md;
+
+  @include t.respond-to(t.$bp-tablet) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include t.respond-to(t.$bp-desktop) {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: t.$space-md;
+
+  @include t.respond-to(t.$bp-tablet) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include t.respond-to(t.$bp-desktop) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.footer {
+  margin-top: t.$space-xl;
+  padding-block: t.$space-lg;
+  background: t.$color-footer;
+  color: t.$color-footer-text;
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: t.$space-lg;
+
+    @include t.respond-to(t.$bp-tablet) {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    gap: t.$space-sm;
+
+    @include t.respond-to(t.$bp-tablet) {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: t.$space-lg;
+    }
+  }
+
+  &__right {
+    @include t.respond-to(t.$bp-tablet) {
+      text-align: right;
+    }
+  }
+}
