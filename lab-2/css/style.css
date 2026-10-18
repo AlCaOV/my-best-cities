@@ -1,0 +1,383 @@
+/* ===== Універсальний селектор: скидання відступів ===== */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* ===== Селектор елемента ===== */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #263238;
+  background: #eef2f1;
+}
+
+/* ===== Групування селекторів ===== */
+h1, h2, h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  color: #12403c;
+  line-height: 1.25;
+}
+
+h1 {
+  font-size: 32px;
+  margin-bottom: 16px;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+
+h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+p {
+  margin-bottom: 12px;
+  color: #263238;
+}
+
+a {
+  color: #0f766e;
+}
+
+/* ===== Header ===== */
+.site-header {
+  background: #12403c;
+  color: #ffffff;
+  padding: 24px 32px 0;
+  border-bottom: 4px solid #f59e0b;
+}
+
+.header-inner {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.brand {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.logo {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 30px;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+
+.slogan {
+  font-size: 15px;
+  color: #b2dfdb;
+}
+
+/* Декоративний датчик: transform rotate() і scale() */
+.sensor {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  width: 56px;
+  height: 56px;
+  margin-right: 20px;
+  border: 4px solid #f59e0b;
+  border-radius: 50%;
+  background: #0f766e;
+  transform: rotate(-20deg);
+  transition: transform 0.4s ease;
+}
+
+.sensor-wave {
+  display: block;
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #f59e0b;
+  transform: scale(0.8);
+}
+
+.sensor:hover {
+  transform: rotate(20deg) scale(1.1);
+}
+
+/* Навігація: li як inline-block, посилання як block */
+.main-nav {
+  max-width: 960px;
+  margin: 16px auto 0;
+}
+
+.main-nav ul {
+  list-style: none;
+}
+
+.main-nav li {
+  display: inline-block;
+}
+
+.main-nav a {
+  display: block;
+  padding: 10px 14px;
+  color: #ffffff;
+  text-decoration: none;
+  border-bottom: 3px solid transparent;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.main-nav a:hover {
+  background-color: #1b5e57;
+  border-bottom-color: #f59e0b;
+}
+
+/* ===== Основний вміст ===== */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+.section {
+  background: #ffffff;
+  padding: 24px;
+  margin-bottom: 24px;
+  border: 1px solid #cfd8dc;
+  border-radius: 8px;
+}
+
+/* ===== Селектор id ===== */
+#company-description {
+  font-size: 18px;
+  padding: 12px 16px;
+  border-left: 4px solid #0f766e;
+  background: #f0fdfa;
+}
+
+/* ===== Картки моніторингу: Box Model + box-sizing ===== */
+.metric {
+  display: inline-block;
+  vertical-align: top;
+  box-sizing: border-box;
+  width: 168px;
+  height: 112px;
+  padding: 14px;
+  margin: 0 8px 12px 0;
+  border: 2px solid #b2dfdb;
+  border-radius: 8px;
+  background: #f8fafc;
+}
+
+.metric-label {
+  display: block;
+  font-size: 13px;
+  text-transform: uppercase;
+  color: #607d8b;
+  margin-bottom: 6px;
+}
+
+.metric-value {
+  font-size: 30px;
+  font-weight: bold;
+  color: #12403c;
+  margin-bottom: 0;
+}
+
+.metric-value-small {
+  font-size: 16px;
+  line-height: 1.3;
+}
+
+.unit {
+  display: inline;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+/* ===== Картки напрямів роботи: спільний клас, inline-block, transition ===== */
+.card {
+  display: inline-block;
+  vertical-align: top;
+  box-sizing: border-box;
+  width: 205px;
+  height: 180px;
+  padding: 16px;
+  margin: 0 8px 12px 0;
+  border: 1px solid #cfd8dc;
+  border-top: 4px solid #0f766e;
+  border-radius: 8px;
+  background: #ffffff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 16px rgba(18, 64, 60, 0.2);
+}
+
+.card p {
+  font-size: 14px;
+}
+
+/* ===== Попередження: position relative + absolute ===== */
+.warning {
+  position: relative;
+  padding: 32px 24px 20px;
+  margin-bottom: 24px;
+  border: 2px solid #f59e0b;
+  border-radius: 8px;
+  background: #fff8e1;
+}
+
+.warning-badge {
+  position: absolute;
+  top: -14px;
+  left: 20px;
+  display: inline-block;
+  padding: 2px 12px;
+  border-radius: 12px;
+  background: #f59e0b;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/*
+  Навмисний конфлікт правил для аналізу cascade і specificity.
+  Абзац #warning-text одночасно потрапляє під три правила:
+    p                       — specificity (0,0,1) → колір #263238
+    .warning .warning-text  — specificity (0,2,0) → колір #8a4b00
+    #warning-text           — specificity (1,0,0) → колір #b71c1c
+  Перемагає селектор id, хоча правило класу записане нижче.
+*/
+#warning-text {
+  color: #b71c1c;
+  font-weight: bold;
+}
+
+.warning .warning-text {
+  color: #8a4b00;
+  margin-bottom: 0;
+}
+
+/* ===== Таблиця вимірювань ===== */
+.measurements-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.measurements-table th,
+.measurements-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #cfd8dc;
+  text-align: left;
+}
+
+.measurements-table th {
+  background: #12403c;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+/* Мітки статусу */
+.status {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.status-ok {
+  background: #2e7d32;
+}
+
+.status-warn {
+  background: #f59e0b;
+}
+
+.status-danger {
+  background: #c62828;
+}
+
+.status-active {
+  background: #0f766e;
+}
+
+/* ===== Форма ===== */
+.order-form label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+/* ===== Селектори атрибута ===== */
+input[type="text"],
+input[type="email"],
+input[type="date"],
+select,
+textarea {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 420px;
+  padding: 8px 10px;
+  border: 1px solid #90a4ae;
+  border-radius: 4px;
+  font-size: 15px;
+  font-family: inherit;
+}
+
+input[type="email"] {
+  border-color: #0f766e;
+}
+
+input[required],
+select[required] {
+  border-left: 4px solid #0f766e;
+}
+
+/* Кнопка: зміна кольору при наведенні з transition */
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 6px;
+  background-color: #0f766e;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #f59e0b;
+  transform: translateY(-2px);
+}
+
+/* ===== Footer ===== */
+.site-footer {
+  background: #12403c;
+  padding: 24px 16px;
+  text-align: center;
+}
+
+.site-footer p {
+  color: #b2dfdb;
+  margin-bottom: 6px;
+}
+
+.site-footer .footer-name {
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.site-footer a {
+  color: #ffffff;
+}
