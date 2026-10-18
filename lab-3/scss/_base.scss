@@ -1,0 +1,75 @@
+@use "variables" as v;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: v.$font-main;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: v.$color-text;
+  background: v.$color-white;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  color: v.$color-heading;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: v.$space-md;
+}
+
+h3 {
+  font-size: 1rem;
+  margin-bottom: v.$space-sm;
+}
+
+a {
+  color: v.$color-primary;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+// Користувачам, які вимкнули анімацію в системі, прибираємо переходи
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+  }
+}

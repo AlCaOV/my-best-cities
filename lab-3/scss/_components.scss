@@ -1,0 +1,302 @@
+@use "tools" as t;
+
+// ===== Логотип =====
+.brand {
+  &__logo {
+    font-size: 1.375rem;
+    font-weight: 700;
+    color: t.$color-heading;
+  }
+
+  &__slogan {
+    font-size: 0.8125rem;
+    color: t.$color-muted;
+  }
+}
+
+// ===== Навігація: Flexbox, на mobile — колонка =====
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: t.$space-xs;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  @include t.respond-to(t.$bp-tablet) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: t.$space-lg;
+  }
+
+  &__link {
+    display: block;
+    padding: 6px 4px;
+    color: t.$color-heading;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: color t.$transition, border-color t.$transition;
+
+    &:hover,
+    &--active {
+      color: t.$color-primary;
+      border-bottom-color: t.$color-primary;
+    }
+  }
+}
+
+// ===== Hero-текст =====
+.hero {
+  h1 {
+    margin-bottom: t.$space-md;
+    font-size: clamp(1.8rem, 6vw, 3.2rem);
+  }
+
+  &__text {
+    margin-bottom: t.$space-lg;
+    color: #374151;
+  }
+}
+
+// ===== Кнопка =====
+.btn {
+  display: inline-block;
+  padding: 12px t.$space-lg;
+  border: none;
+  border-radius: t.$radius;
+  background-color: t.$color-primary;
+  color: t.$color-white;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color t.$transition;
+
+  &:hover {
+    background-color: t.$color-primary-dark;
+  }
+}
+
+// ===== Картки моніторингу =====
+.metric {
+  @include t.surface-card;
+
+  &__label,
+  &__note {
+    font-size: 0.75rem;
+    color: t.$color-muted;
+  }
+
+  &__value {
+    margin-block: t.$space-xs;
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: t.$color-heading;
+  }
+
+  // На tablet остання (п'ята) картка займає обидві колонки
+  &--wide {
+    @include t.respond-to(t.$bp-tablet) {
+      grid-column: span 2;
+    }
+
+    @include t.respond-to(t.$bp-desktop) {
+      grid-column: auto;
+    }
+  }
+}
+
+.badge {
+  display: inline-block;
+  padding: 2px t.$space-sm;
+  border-radius: 3px;
+  font-size: 0.75rem;
+
+  &--ok {
+    background: t.$color-success-bg;
+    color: t.$color-success;
+  }
+}
+
+// ===== Картки напрямів: внутрішня структура — вертикальний Flexbox =====
+.card {
+  @include t.surface-card;
+  display: flex;
+  flex-direction: column;
+  gap: t.$space-xs;
+  transition: transform t.$transition, box-shadow t.$transition;
+
+  h3 {
+    margin: 0;
+  }
+
+  p {
+    font-size: 0.875rem;
+    color: t.$color-muted;
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 14px rgba(17, 24, 39, 0.12);
+  }
+}
+
+// ===== Банер попередження =====
+.warning {
+  position: relative;
+  width: 100%;
+  margin-top: t.$space-xl;
+  padding: t.$space-md;
+  border: 1px solid t.$color-danger-border;
+  border-radius: t.$radius;
+  background: t.$color-danger-bg;
+
+  h2 {
+    margin-bottom: t.$space-sm;
+    color: t.$color-danger;
+  }
+
+  &__badge {
+    position: absolute;
+    top: 12px;
+    right: 14px;
+    padding: 2px t.$space-sm;
+    border-radius: 3px;
+    background: t.$color-danger;
+    color: t.$color-white;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  &__text {
+    font-size: 0.875rem;
+  }
+}
+
+// ===== Таблиця: прокрутка всередині обгортки, а не всієї сторінки =====
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+
+  table {
+    width: 100%;
+    min-width: t.$table-min;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+  }
+
+  th,
+  td {
+    padding: t.$space-sm 12px;
+    border: 1px solid t.$color-border;
+    text-align: left;
+  }
+
+  th {
+    background: #e8eef4;
+    font-weight: 600;
+  }
+}
+
+.status {
+  &--danger {
+    color: t.$color-danger;
+  }
+
+  &--ok {
+    color: t.$color-success;
+  }
+}
+
+// ===== Форма: Grid, 1 колонка → 2 колонки полів → поля 2fr + опис 1fr =====
+.form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: t.$space-md;
+
+  @include t.respond-to(t.$bp-desktop) {
+    grid-template-columns: 2fr 1fr;
+    align-items: start;
+  }
+
+  &__fields {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: t.$space-md;
+
+    @include t.respond-to(t.$bp-tablet) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__lead {
+    margin: -8px 0 t.$space-md;
+    color: t.$color-muted;
+  }
+
+  label {
+    display: block;
+    margin-bottom: t.$space-xs;
+    font-size: 0.875rem;
+  }
+
+  input,
+  select,
+  textarea {
+    width: 100%;
+    max-width: 100%;
+    padding: t.$space-sm 12px;
+    border: 1px solid t.$color-input-border;
+    border-radius: t.$radius;
+    background: t.$color-white;
+    color: t.$color-text;
+
+    &:focus {
+      outline: none;
+      border-color: t.$color-primary;
+    }
+  }
+
+  textarea {
+    min-height: 124px;
+    resize: vertical;
+  }
+
+  &__actions {
+    grid-column: 1 / -1;
+  }
+}
+
+.required {
+  color: t.$color-danger;
+}
+
+// ===== Footer: текст і посилання =====
+.footer {
+  &__name {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: t.$color-white;
+  }
+
+  p {
+    font-size: 0.875rem;
+  }
+
+  a {
+    color: t.$color-white;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__contacts {
+    margin-top: 6px;
+  }
+
+  &__copyright {
+    margin-top: 6px;
+  }
+}

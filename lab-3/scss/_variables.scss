@@ -1,0 +1,40 @@
+// Кольори
+$color-primary: #1f8a4c;
+$color-primary-dark: #146c3a;
+$color-text: #14213d;
+$color-heading: #111827;
+$color-muted: #5f6b7a;
+$color-footer: #263746;
+$color-footer-text: #d1d5db;
+$color-surface: #f4f8fb;
+$color-hero: #eef4f8;
+$color-border: #d6e2ec;
+$color-input-border: #c9d3dd;
+$color-success: #188a45;
+$color-success-bg: #dff3e4;
+$color-danger: #e53935;
+$color-danger-bg: #fdecec;
+$color-danger-border: #f2a7a7;
+$color-white: #ffffff;
+
+// Шрифт
+$font-main: "Segoe UI", Arial, Helvetica, sans-serif;
+
+// Відступи
+$space-xs: 4px;
+$space-sm: 8px;
+$space-md: 16px;
+$space-lg: 24px;
+$space-xl: 40px;
+
+// Розміри
+$container-max: 1200px;
+$radius: 6px;
+$table-min: 640px;
+
+// Breakpoints
+$bp-tablet: 768px;
+$bp-desktop: 1024px;
+
+// Анімація
+$transition: 0.3s ease;
